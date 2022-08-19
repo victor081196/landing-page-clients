@@ -35,8 +35,9 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
     <div class="container">
       <div class="row justify-content-center pb-5">
         <div class="col-md-6 heading-section text-center ftco-animate">
-          <h2 class="mb-4">Nuestros <span>Servicios</span></h2>
-          <p><?= $pgn_srv['descripcion'] ?></p>
+          <?= $pgn_srv['descripcion'] ?>
+          <!-- <h2 class="mb-4">Nuestros <span>Servicios</span></h2>
+          <p><?= $pgn_srv['descripcion'] ?></p> -->
         </div>
       </div>
       <div class="row d-flex no-gutters justify-content-center align-items-center">
