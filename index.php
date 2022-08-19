@@ -12,6 +12,7 @@ $pgn = json_decode(file_get_contents(URL_API . "sitioweb/paginas/suscriptor/" . 
 $pgn_contacto = json_decode($pgn['pgn_contacto'], true);
 $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 $pgn_cts = json_decode($pgn['pgn_caracteristicas'], true);
+$pgn_srv = json_decode($pgn['pgn_servicios'], true);
 $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 
 ?>
@@ -108,8 +109,9 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6 heading-section text-center ftco-animate">
-					<h2 class="mb-3"><span>¡Nuestras </span>caracteristicas!</h2>
-					<p><?= $pgn_cts['descripcion'] ?></p>
+					<?= $pgn_cts['descripcion'] ?>
+					<!-- <h2 class="mb-3"><span>¡Nuestras </span>caracteristicas!</h2>
+					<p><?= $pgn_cts['descripcion'] ?></p> -->
 				</div>
 			</div>
 			<div class="row justify-content-center align-items-center text-center">
@@ -118,8 +120,8 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 				foreach ($caracteristicas as $cts) : ?>
 					<div class="col-md-4">
 						<div class="services-2">
-							<div class="icon">
-								<img class="mb-4" src="<?= $cts['cts_icono'] ?>" alt="icono">
+							<div class="icon mb-4">
+								<img src="<?= $cts['cts_icono'] ?>" alt="icono">
 							</div>
 							<div class="text">
 								<h3><?= $cts['cts_titulo'] ?></h3>
@@ -154,8 +156,9 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 		<div class="container">
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-6 heading-section text-center ftco-animate">
-					<h2 class="mb-4">¡Nuestros <span>servicios!</span></h2>
-					<p><?= $pgn_cts['descripcion'] ?></p>
+					<?= $pgn_srv['descripcion'] ?>
+					<!-- <h2 class="mb-4">¡Nuestros <span>servicios!</span></h2>
+					<p><?= $pgn_srv['descripcion'] ?></p> -->
 				</div>
 			</div>
 			<div class="row d-flex no-gutters justify-content-center align-items-center">
