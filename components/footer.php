@@ -20,7 +20,7 @@ $pgn_contacto = json_decode($pgn['pgn_contacto'], true);
 			<div class="col-md">
 				<div class="ftco-footer-widget mb-4">
 					<h2 class="ftco-footer-logo"><img src="<?= $res['psnw_logo'] ?>" width="100px" alt="logo"></h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<p><?= $res['psnw_descripcion'] ?></p>
 					<ul class="ftco-footer-social list-unstyled mt-2">
 						<li class="ftco-animate"><a href="<?= $psnw_redes_sociales['twitter'] ?>" target="_blank"><span class="fa fa-twitter"></span></a></li>
 						<li class="ftco-animate"><a href="<?= $psnw_redes_sociales['facebook'] ?>" target="_blank"><span class="fa fa-facebook"></span></a></li>
@@ -34,10 +34,10 @@ $pgn_contacto = json_decode($pgn['pgn_contacto'], true);
 					<ul class="list-unstyled">
 						<li><a href="about" class="py-2 d-block">Sobre</a></li>
 						<li><a href="contact" class="py-2 d-block">Contacto</a></li>
-						<li><a href="#" class="py-2 d-block">Qué Hacemos</a></li>
-						<li><a href="#" class="py-2 d-block">Planes y precios</a></li>
-						<li><a href="#" class="py-2 d-block">Política de reembolso</a></li>
-						<li><a href="#" class="py-2 d-block">Llámanos</a></li>
+						<!-- <li><a href="#" class="py-2 d-block">Qué Hacemos</a></li> -->
+						<!-- <li><a href="#" class="py-2 d-block">Planes y precios</a></li> -->
+						<!-- <li><a href="#" class="py-2 d-block">Política de reembolso</a></li> -->
+						<li><a href="contact" class="py-2 d-block">Llámanos</a></li>
 					</ul>
 				</div>
 			</div>
@@ -46,10 +46,10 @@ $pgn_contacto = json_decode($pgn['pgn_contacto'], true);
 					<h2 class="ftco-heading-2">Legal</h2>
 					<ul class="list-unstyled">
 						<li><a href="#" class="py-2 d-block">Únete a nosotros</a></li>
-						<li><a href="#" class="py-2 d-block">Blog</a></li>
-						<li><a href="#" class="py-2 d-block">Privacidad y Política</a></li>
-						<li><a href="#" class="py-2 d-block">Términos y Condiciones</a></li>
-						<li><a href="#" class="py-2 d-block">Careers</a></li>
+						<!-- <li><a href="#" class="py-2 d-block">Blog</a></li> -->
+						<li><a href="privacy" class="py-2 d-block">Privacidad y Política</a></li>
+						<li><a href="terms" class="py-2 d-block">Términos y Condiciones</a></li>
+						<!-- <li><a href="#" class="py-2 d-block">Careers</a></li> -->
 						<li><a href="contact" class="py-2 d-block">Contacto</a></li>
 					</ul>
 				</div>

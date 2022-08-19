@@ -59,12 +59,12 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
                 <li class="nav-item <?= $inicio ?>"><a href="<?= HTTP_HOST ?>" class="nav-link">Inicio</a></li>
                 <li class="nav-item <?= $about ?>"><a href="about" class="nav-link">Sobre</a></li>
                 <li class="nav-item <?= $servicio ?>"><a href="services" class="nav-link">Servicios</a></li>
-                <li class="nav-item "><a href="blog.html" class="nav-link">Blog</a></li>
+                <!-- <li class="nav-item "><a href="blog.html" class="nav-link">Blog</a></li> -->
                 <li class="nav-item <?= $contact ?>"><a href="contact" class="nav-link">Contacto</a></li>
             </ul>
         </div>
         <div class="form-inline my-2 my-lg-0">
-            <button type="button" class="btn btn-primary btn-lg my-2 my-sm-0" id="tooltip-1" title="¡Mira el estatus de tu repación!" data-toggle="modal" data-target="#mdlConsultarSrv">
+            <button type="button" class="btn btn-primary btn-lg my-2 my-sm-0" id="tooltip-1" title="¡Mira el estatus de tu reparación!" data-toggle="modal" data-target="#mdlConsultarSrv">
                 <i class="fa fa-search"></i>
             </button>
         </div>

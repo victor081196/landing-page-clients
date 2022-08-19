@@ -8,6 +8,7 @@ $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
 
 $pgn = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
 $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
+$pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,15 +31,23 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
     </div>
   </section>
 
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 heading-section text-center ftco-animate">
+          <h2><?= $pgn_sobre['descripcion'] ?></h2>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-  <section class="ftco-section" id="section-counter">
-    <div class="container-fluid">
+  <section class="ftco-counter img" id="section-counter">
+    <div class="container">
       <div class="row no-gutters d-flex">
-        <!-- <div class="col-md-6 d-flex">
-          <div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
-        </div> -->
-        <div class="col-md-12 p-3 pl-md-5 py-5 bg-primary">
+        <div class="col-md-6 d-flex">
+          <div class="img d-flex align-self-stretch" style="background-image:url('<?= $pgn_sobre['presentacion'] ?>');background-size: cover;background-repeat: no-repeat;"></div>
+        </div>
+        <div class="col-md-6 p-3 pl-md-5 py-5 bg-primary">
           <div class="row justify-content-start pb-3">
             <div class="col-md-12 heading-section heading-section-white ftco-animate">
               <h2 class="mb-4">Acerca de <span>nosotros</span></h2>
@@ -51,10 +60,10 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
   </section>
 
   <section class="ftco-section bg-light ftco-faqs">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-lg-6 order-md-last">
-          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/about.jpg);">
+          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url('<?= $pgn_preguntas['presentacion'] ?>');">
           </div>
         </div>
 

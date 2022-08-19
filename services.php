@@ -7,6 +7,7 @@ $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
 
 $pgn = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
 $pgn_srv = json_decode($pgn['pgn_servicios'], true);
+$pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,9 +36,10 @@ $pgn_srv = json_decode($pgn['pgn_servicios'], true);
       <div class="row justify-content-center pb-5">
         <div class="col-md-6 heading-section text-center ftco-animate">
           <h2 class="mb-4">Nuestros <span>Servicios</span></h2>
+          <p><?= $pgn_srv['descripcion'] ?></p>
         </div>
       </div>
-      <div class="row d-flex no-gutters">
+      <div class="row d-flex no-gutters justify-content-center align-items-center">
         <?php
         $servicios = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/servicios/suscriptor/" . $id_suscriptor), true);
         foreach ($servicios as $srv) : ?>
@@ -67,10 +69,10 @@ $pgn_srv = json_decode($pgn['pgn_servicios'], true);
         <?php
         $galeria = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/galeria/suscriptor/" . $id_suscriptor), true);
         foreach ($galeria as $gra) : ?>
-          <div class="col-md-6 col-lg-3 ftco-animate">
+          <div class="col-xl-4 col-md-6 col-12 d-flex justify-content-center ftco-animate">
             <div class="project">
               <div class="img">
-                <img src="<?= $gra['gra_foto'] ?>" class="img-fluid" alt="Colorlib Template" style="object-fit: cover;">
+                <img src="<?= $gra['gra_foto'] ?>" class="img-fluid" alt="Colorlib Template" style="width: 350px;height: 350px;object-fit: cover;">
               </div>
               <a href="<?= $gra['gra_foto'] ?>" class="icon image-popup d-flex justify-content-center align-items-center">
                 <span class="fa fa-expand"></span>
@@ -85,7 +87,7 @@ $pgn_srv = json_decode($pgn['pgn_servicios'], true);
     <div class="container">
       <div class="row">
         <div class="col-lg-6 order-md-last">
-          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/about.jpg);">
+          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url('<?= $pgn_preguntas['presentacion'] ?>');">
           </div>
           <!-- <div class="d-flex mt-3">
 						<div class="img img-2 mr-md-2 w-100" style="background-image:url(images/about-1.jpg);"></div>

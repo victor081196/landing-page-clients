@@ -5,9 +5,15 @@ $url_sitio = substr(HTTP_HOST, 0, -1);
 $psnw_id_suscriptor = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/url/" . base64_encode($url_sitio)), true);
 $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
 
+$res = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/personalizacion/suscriptor/" . $id_suscriptor), true);
+$psnw_top_bar = json_decode($res['psnw_top_bar'], true);
+
 $pgn = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
 $pgn_contacto = json_decode($pgn['pgn_contacto'], true);
 $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
+$pgn_cts = json_decode($pgn['pgn_caracteristicas'], true);
+$pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +45,7 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 									<p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><?= $slider['sld_descripcion'] ?></p>
 									<p>
 										<?php if (!empty($slider['sld_texto_boton'])) : ?>
-											<a href="<?= $slider['sld_url_boton'] ?>" class="btn btn-primary px-4 py-3"><?= $slider['sld_texto_boton'] ?></a>
+											<a href="<?= $slider['sld_url_boton'] ?>" class="btn btn-primary px-4 py-3" target="_blank"><?= $slider['sld_texto_boton'] ?></a>
 										<?php endif; ?>
 									</p>
 								</div>
@@ -102,8 +108,8 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-6 heading-section text-center ftco-animate">
-					<h2 class="mb-3"><span>Carac</span>teristicas</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+					<h2 class="mb-3"><span>¡Nuestras </span>caracteristicas!</h2>
+					<p><?= $pgn_cts['descripcion'] ?></p>
 				</div>
 			</div>
 			<div class="row justify-content-center align-items-center text-center">
@@ -149,6 +155,7 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-6 heading-section text-center ftco-animate">
 					<h2 class="mb-4">¡Nuestros <span>servicios!</span></h2>
+					<p><?= $pgn_cts['descripcion'] ?></p>
 				</div>
 			</div>
 			<div class="row d-flex no-gutters justify-content-center align-items-center">
@@ -181,10 +188,10 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 				<?php
 				$galeria = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/galeria/suscriptor/" . $id_suscriptor), true);
 				foreach ($galeria as $gra) : ?>
-					<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="col-xl-4 col-md-6 col-12 d-flex justify-content-center ftco-animate">
 						<div class="project">
 							<div class="img">
-								<img src="<?= $gra['gra_foto'] ?>" class="img-fluid" alt="Colorlib Template" style="object-fit: cover;">
+								<img src="<?= $gra['gra_foto'] ?>" class="img-fluid" alt="Colorlib Template" style="width: 350px;height: 350px;object-fit: cover;">
 							</div>
 							<a href="<?= $gra['gra_foto'] ?>" class="icon image-popup d-flex justify-content-center align-items-center">
 								<span class="fa fa-expand"></span>
@@ -200,7 +207,7 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 order-md-last">
-					<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/about.jpg);">
+					<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url('<?= $pgn_preguntas['presentacion'] ?>');">
 					</div>
 				</div>
 
@@ -244,73 +251,18 @@ $pgn_sobre = json_decode($pgn['pgn_sobre'], true);
 	</section>
 
 
-	<section class="ftco-section ftco-no-pb testimony-section" style="background-image: url(images/bg_1.jpg);">
+	<section class="ftco-section ftco-no-pb testimony-section bg-primary">
 		<div class="overlay-1"></div>
 		<div class="container-fluid">
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-					<h2 class="mb-4">Our insights &amp; creative ideas</h2>
+					<h2 class="mb-4">¿Tienes dudas?</h2>
+					<p>Contáctanos vía whatsapp para resolver todas la dudas que puedas tener.</p>
 				</div>
 			</div>
-			<div class="row ftco-animate">
-				<div class="col-md-12 testimonial">
-					<div class="carousel-testimony owl-carousel ftco-owl">
-						<div class="item">
-							<div class="testimony-wrap d-flex align-items-stretch" style="background-image: url(images/testimony-1.jpg);">
-								<div class="overlay"></div>
-								<div class="text">
-									<div class="line"></div>
-									<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-									<p class="name">Donna Scott</p>
-									<span class="position">Marketing Manager</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap d-flex align-items-stretch" style="background-image: url(images/testimony-2.jpg);">
-								<div class="overlay"></div>
-								<div class="text">
-									<div class="line"></div>
-									<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-									<p class="name">Roger Scott</p>
-									<span class="position">Interface Designer</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap d-flex align-items-stretch" style="background-image: url(images/testimony-3.jpg);">
-								<div class="overlay"></div>
-								<div class="text">
-									<div class="line"></div>
-									<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-									<p class="name">Roger Scott</p>
-									<span class="position">UI Designer</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap d-flex align-items-stretch" style="background-image: url(images/testimony-4.jpg);">
-								<div class="overlay"></div>
-								<div class="text">
-									<div class="line"></div>
-									<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-									<p class="name">Roger Scott</p>
-									<span class="position">Web Developer</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap d-flex align-items-stretch" style="background-image: url(images/testimony-5.jpg);">
-								<div class="overlay"></div>
-								<div class="text">
-									<div class="line"></div>
-									<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-									<p class="name">Roger Scott</p>
-									<span class="position">System Analyst</span>
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="row">
+				<div class="col-md-12 text-center mb-5">
+					<a href="https://api.whatsapp.com/send/?phone=<?= $psnw_top_bar['psnw_whatsapp'] ?>" class="btn btn-outline-light btn-lg rounded-pill" target="_blank"><i class="fa fa-whatsapp"></i> WHATSAPP</a>
 				</div>
 			</div>
 		</div>

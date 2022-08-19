@@ -7,9 +7,35 @@ $psnw_id_suscriptor = json_decode(file_get_contents("http://localhost/softmor-po
 $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
 $res = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/personalizacion/suscriptor/" . $id_suscriptor), true);
 
+$url = $_SERVER["REQUEST_URI"];
+$page = explode('/', $url);
+switch ($page[2]) {
+	case "":
+		$title = "Inicio";
+		break;
+	case "about":
+		$title = "Sobre nosotros";
+		break;
+	case "services":
+		$title = "Servicios";
+		break;
+	case "contact":
+		$title = "Contacto";
+		break;
+	case "terms":
+		$title = "Terminos y condiciones";
+		break;
+	case "privacy":
+		$title = "Privacidad y politíca";
+		break;
+	default:
+		break;
+}
+
 ?>
+
 <head>
-	<title>Inicio</title>
+	<title><?= $title ?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

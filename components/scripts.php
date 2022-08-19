@@ -27,6 +27,7 @@
     $(document).ready(function() {
         $(".informacion").hide();
         $("#tooltip-1").tooltip();
+        $("#tooltip-1").focus();
     })
 
     function startLoadButton() {
