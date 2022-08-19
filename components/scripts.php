@@ -26,6 +26,7 @@
 <script>
     $(document).ready(function() {
         $(".informacion").hide();
+        $("#tooltip-1").tooltip();
     })
 
     function startLoadButton() {
