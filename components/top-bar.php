@@ -19,7 +19,6 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
                     <span class="mailus"><i class="fa fa-phone"></i></span> <a href="tel:<?= $psnw_top_bar['psnw_telefono'] ?>"><?= $psnw_top_bar['psnw_telefono'] ?></a>
                     <span class="mailus"><i class="fa fa-envelope"></i> </span> <a href="mailto:<?= $psnw_top_bar['psnw_correo'] ?>"><?= $psnw_top_bar['psnw_correo'] ?></a>
                     <span class="mailus"><i class="fa fa-clock-o"></i></span> <a href="#"><?= $psnw_top_bar['psnw_horario'] ?></a>
-                    <span class="mailus"><i class="fa fa-clock-o"></i></span> <a href="#"></a>
                 </p>
             </div>
             <div class="col-12 col-md d-flex justify-content-md-end">
