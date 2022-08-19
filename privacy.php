@@ -3,10 +3,10 @@ include_once 'config.php';
 
 
 $url_sitio = substr(HTTP_HOST, 0, -1);
-$psnw_id_suscriptor = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/url/" . base64_encode($url_sitio)), true);
+$psnw_id_suscriptor = json_decode(file_get_contents(URL_API . "sitioweb/url/" . base64_encode($url_sitio)), true);
 $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
 
-$pgn = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
+$pgn = json_decode(file_get_contents(URL_API . "sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
 $pgn_privacidad = json_decode($pgn['pgn_privacidad'], true);
 ?>
 <!DOCTYPE html>

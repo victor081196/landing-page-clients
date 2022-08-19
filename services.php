@@ -2,10 +2,10 @@
 include_once 'config.php';
 
 $url_sitio = substr(HTTP_HOST, 0, -1);
-$psnw_id_suscriptor = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/url/" . base64_encode($url_sitio)), true);
+$psnw_id_suscriptor = json_decode(file_get_contents(URL_API . "sitioweb/url/" . base64_encode($url_sitio)), true);
 $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
 
-$pgn = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
+$pgn = json_decode(file_get_contents(URL_API . "sitioweb/paginas/suscriptor/" . $id_suscriptor), true);
 $pgn_srv = json_decode($pgn['pgn_servicios'], true);
 $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 ?>
@@ -41,7 +41,7 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
       </div>
       <div class="row d-flex no-gutters justify-content-center align-items-center">
         <?php
-        $servicios = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/servicios/suscriptor/" . $id_suscriptor), true);
+        $servicios = json_decode(file_get_contents(URL_API . "sitioweb/servicios/suscriptor/" . $id_suscriptor), true);
         foreach ($servicios as $srv) : ?>
           <div class="col-md-3 d-flex align-self-stretch ftco-animate text-center m-3">
             <div class="media block-6 services d-block">
@@ -67,7 +67,7 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
       </div>
       <div class="row">
         <?php
-        $galeria = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/galeria/suscriptor/" . $id_suscriptor), true);
+        $galeria = json_decode(file_get_contents(URL_API . "sitioweb/galeria/suscriptor/" . $id_suscriptor), true);
         foreach ($galeria as $gra) : ?>
           <div class="col-xl-4 col-md-6 col-12 d-flex justify-content-center ftco-animate">
             <div class="project">
@@ -102,7 +102,7 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
           <div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
             <?php
             $i = 0;
-            $preguntas = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/preguntas/suscriptor/" . $id_suscriptor), true);
+            $preguntas = json_decode(file_get_contents(URL_API . "sitioweb/preguntas/suscriptor/" . $id_suscriptor), true);
             foreach ($preguntas as $pgta) :
               if ($i == 0) {
                 $show = 'show';

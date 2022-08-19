@@ -3,9 +3,9 @@ include_once 'config.php';
 
 
 $url_sitio = substr(HTTP_HOST, 0, -1);
-$psnw_id_suscriptor = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/url/" . base64_encode($url_sitio)), true);
+$psnw_id_suscriptor = json_decode(file_get_contents(URL_API . "sitioweb/url/" . base64_encode($url_sitio)), true);
 $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
-$res = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/personalizacion/suscriptor/" . $id_suscriptor), true);
+$res = json_decode(file_get_contents(URL_API . "sitioweb/personalizacion/suscriptor/" . $id_suscriptor), true);
 
 $url = $_SERVER["REQUEST_URI"];
 $page = explode('/', $url);

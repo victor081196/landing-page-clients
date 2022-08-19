@@ -1,12 +1,12 @@
 <?php
 include_once 'config.php';
 
-$scl = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/sucursales/scl_id/" . base64_decode($_GET['scl_id'])), true);
+$scl = json_decode(file_get_contents(URL_API . "sitioweb/sucursales/scl_id/" . base64_decode($_GET['scl_id'])), true);
 
 $url_sitio = substr(HTTP_HOST, 0, -1);
-$psnw_id_suscriptor = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/url/" . base64_encode($url_sitio)), true);
+$psnw_id_suscriptor = json_decode(file_get_contents(URL_API . "sitioweb/url/" . base64_encode($url_sitio)), true);
 $id_suscriptor = $psnw_id_suscriptor['psnw_id_suscriptor'];
-$res = json_decode(file_get_contents("http://localhost/softmor-pos/api/public/sitioweb/personalizacion/suscriptor/" . $id_suscriptor), true);
+$res = json_decode(file_get_contents(URL_API . "sitioweb/personalizacion/suscriptor/" . $id_suscriptor), true);
 
 $psnw_top_bar = json_decode($res['psnw_top_bar'], true);
 $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
