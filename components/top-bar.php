@@ -57,10 +57,10 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto mr-auto">
                 <li class="nav-item <?= $inicio ?>"><a href="<?= HTTP_HOST ?>" class="nav-link">Inicio</a></li>
-                <li class="nav-item <?= $about ?>"><a href="about" class="nav-link">Sobre</a></li>
-                <li class="nav-item <?= $servicio ?>"><a href="services" class="nav-link">Servicios</a></li>
+                <li class="nav-item <?= $about ?>"><a href="<?= HTTP_HOST ?>about" class="nav-link">Sobre</a></li>
+                <li class="nav-item <?= $servicio ?>"><a href="<?= HTTP_HOST ?>services" class="nav-link">Servicios</a></li>
                 <li class="nav-item <?= $catalog ?>"><a href="catalog" class="nav-link">Catálogo</a></li>
-                <li class="nav-item <?= $contact ?>"><a href="contact" class="nav-link">Contacto</a></li>
+                <li class="nav-item <?= $contact ?>"><a href="<?= HTTP_HOST ?>contact" class="nav-link">Contacto</a></li>
             </ul>
         </div>
         <div class="form-inline my-2 my-lg-0">
