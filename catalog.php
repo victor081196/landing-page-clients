@@ -100,7 +100,11 @@ $categorias = json_decode(file_get_contents(URL_API . $scl_default['scl_id_sucur
         <?php foreach ($productos as $pds) : ?>
           <div class="col-xl-3 col-md-6 col-12 ftco-animate mb-3">
             <div class="card bg-light">
-              <img class="card-img-top crd-pds" title="<?= $pds['descripcion'] ?>" width="100%" height="200px" src="<?= $pds['imagen'] ?>" style="object-fit: cover;object-position: center center;" alt="">
+              <div class="row">
+                <div class="col-12 p-4">
+                  <img class="card-img-top img-fluid" title="<?= $pds['descripcion'] ?>" width="100%" height="200px" src="<?= $pds['imagen'] ?>" style="object-fit: cover;object-position: center center;" alt="">
+                </div>
+              </div>
               <div class="card-body text-dark">
                 <div class="row crd-pds" title="<?= $pds['descripcion'] ?>">
                   <div class="col-12" style="width: 100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
@@ -147,7 +151,6 @@ $categorias = json_decode(file_get_contents(URL_API . $scl_default['scl_id_sucur
       $(".btnAgregarCarrito").tooltip();
       $(".crd-pds").tooltip();
     })
-   
   </script>
 
 </body>
