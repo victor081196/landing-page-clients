@@ -50,6 +50,7 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
         $about = $page[2] == 'about' ? 'active' : '';
         $servicio = $page[2] == 'services' ? 'active' : '';
         $contact = $page[2] == 'contact' ? 'active' : '';
+        $catalog = $page[2] == 'catalog' ? 'active' : '';
 
         ?>
 
@@ -58,7 +59,7 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
                 <li class="nav-item <?= $inicio ?>"><a href="<?= HTTP_HOST ?>" class="nav-link">Inicio</a></li>
                 <li class="nav-item <?= $about ?>"><a href="about" class="nav-link">Sobre</a></li>
                 <li class="nav-item <?= $servicio ?>"><a href="services" class="nav-link">Servicios</a></li>
-                <!-- <li class="nav-item "><a href="blog.html" class="nav-link">Blog</a></li> -->
+                <li class="nav-item <?= $catalog ?>"><a href="catalog" class="nav-link">Catálogo</a></li>
                 <li class="nav-item <?= $contact ?>"><a href="contact" class="nav-link">Contacto</a></li>
             </ul>
         </div>
@@ -69,6 +70,8 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
         </div>
     </div>
 </nav>
+<div class="urlApi" urlApi="<?= URL_API ?>"></div>
+
 
 <!-- END nav -->
 

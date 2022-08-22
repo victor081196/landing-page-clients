@@ -28,6 +28,9 @@ switch ($page[2]) {
 	case "privacy":
 		$title = "Privacidad y politíca";
 		break;
+	case "catalog":
+		$title = "Catálogo";
+		break;
 	default:
 		break;
 }
