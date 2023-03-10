@@ -253,23 +253,24 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 		</div>
 	</section>
 
-
-	<section class="ftco-section ftco-no-pb testimony-section bg-primary">
-		<div class="overlay-1"></div>
-		<div class="container-fluid">
-			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-					<h2 class="mb-4">¿Tienes dudas?</h2>
-					<p>Contáctanos vía whatsapp para resolver todas la dudas que puedas tener.</p>
+	<?php if (!empty($psnw_top_bar['psnw_whatsapp'])) : ?>
+		<section class="ftco-section ftco-no-pb testimony-section bg-primary">
+			<div class="overlay-1"></div>
+			<div class="container-fluid">
+				<div class="row justify-content-center mb-5 pb-3">
+					<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+						<h2 class="mb-4">¿Tienes dudas?</h2>
+						<p>Contáctanos vía whatsapp para resolver todas la dudas que puedas tener.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center mb-5">
+						<a href="https://api.whatsapp.com/send/?phone=<?= $psnw_top_bar['psnw_whatsapp'] ?>" class="btn btn-outline-light btn-lg rounded-pill" target="_blank"><i class="fa fa-whatsapp"></i> WHATSAPP</a>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 text-center mb-5">
-					<a href="https://api.whatsapp.com/send/?phone=<?= $psnw_top_bar['psnw_whatsapp'] ?>" class="btn btn-outline-light btn-lg rounded-pill" target="_blank"><i class="fa fa-whatsapp"></i> WHATSAPP</a>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
+	<?php endif; ?>
 
 	<section class="ftco-section bg-light">
 		<div class="container">

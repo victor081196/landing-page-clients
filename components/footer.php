@@ -22,9 +22,18 @@ $pgn_contacto = json_decode($pgn['pgn_contacto'], true);
 					<h2 class="ftco-footer-logo"><img src="<?= $res['psnw_logo'] ?>" width="100px" alt="logo"></h2>
 					<p><?= $res['psnw_descripcion'] ?></p>
 					<ul class="ftco-footer-social list-unstyled mt-2">
-						<li class="ftco-animate"><a href="<?= $psnw_redes_sociales['twitter'] ?>" target="_blank"><span class="fa fa-twitter"></span></a></li>
+						<?php foreach ($psnw_redes_sociales as $nombre => $url) : ?>
+							<?php if (!empty($url)) : ?>
+								<li class="ftco-animate">
+									<a href="<?= $url ?>" target="_blank">
+										<span class="fa fa-<?= $nombre ?>"></span>
+									</a>
+								</li>
+							<?php endif; ?>
+						<?php endforeach; ?>
+						<!-- <li class="ftco-animate"><a href="<?= $psnw_redes_sociales['twitter'] ?>" target="_blank"><span class="fa fa-twitter"></span></a></li>
 						<li class="ftco-animate"><a href="<?= $psnw_redes_sociales['facebook'] ?>" target="_blank"><span class="fa fa-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="<?= $psnw_redes_sociales['instagram'] ?>" target="_blank"><span class="fa fa-instagram"></span></a></li>
+						<li class="ftco-animate"><a href="<?= $psnw_redes_sociales['instagram'] ?>" target="_blank"><span class="fa fa-instagram"></span></a></li> -->
 					</ul>
 				</div>
 			</div>

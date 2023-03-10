@@ -9,6 +9,16 @@ $res = json_decode(file_get_contents(URL_API . "sitioweb/personalizacion/suscrip
 
 $psnw_top_bar = json_decode($res['psnw_top_bar'], true);
 $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
+$top_bar = "";
+if (!empty($psnw_top_bar['psnw_telefono'])) {
+    $top_bar .= '<span class="mailus"><i class="fa fa-phone"></i></span> <a href="tel:' . $psnw_top_bar['psnw_telefono'] . '">' . $psnw_top_bar['psnw_telefono'] . '</a>';
+}
+if (!empty($psnw_top_bar['psnw_correo'])) {
+    $top_bar .= '<span class="mailus"><i class="fa fa-envelope"></i> </span> <a href="mailto:' . $psnw_top_bar['psnw_correo'] . '">' . $psnw_top_bar['psnw_correo'] . '</a>';
+}
+if (!empty($psnw_top_bar['psnw_horario'])) {
+    $top_bar .= '<span class="mailus"><i class="fa fa-clock-o"></i></span> <a href="#">' . $psnw_top_bar['psnw_horario'] . '</a>';
+}
 
 ?>
 <div class="wrap">
@@ -16,17 +26,23 @@ $psnw_redes_sociales = json_decode($res['psnw_redes_sociales'], true);
         <div class="row justify-content-between">
             <div class="col-12 col-md d-flex align-items-center">
                 <p class="mb-0 phone">
-                    <span class="mailus"><i class="fa fa-phone"></i></span> <a href="tel:<?= $psnw_top_bar['psnw_telefono'] ?>"><?= $psnw_top_bar['psnw_telefono'] ?></a>
-                    <span class="mailus"><i class="fa fa-envelope"></i> </span> <a href="mailto:<?= $psnw_top_bar['psnw_correo'] ?>"><?= $psnw_top_bar['psnw_correo'] ?></a>
-                    <span class="mailus"><i class="fa fa-clock-o"></i></span> <a href="#"><?= $psnw_top_bar['psnw_horario'] ?></a>
+                    <?= $top_bar ?>
                 </p>
             </div>
             <div class="col-12 col-md d-flex justify-content-md-end">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        <a href="<?= $psnw_redes_sociales['facebook'] ?>" class="d-flex align-items-center justify-content-center" target="_blank"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                        <?php foreach ($psnw_redes_sociales as $nombre => $url) : ?>
+                            <?php if (!empty($url)) : ?>
+                                <a href="<?= $url ?>" class="d-flex align-items-center justify-content-center" target="_blank">
+                                    <span class="fa fa-<?= $nombre ?>"><i class="sr-only"><?= ucfirst($nombre) ?></i></span>
+                                </a>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+
+                        <!-- <a href="<?= $psnw_redes_sociales['facebook'] ?>" class="d-flex align-items-center justify-content-center" target="_blank"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
                         <a href="<?= $psnw_redes_sociales['twitter'] ?>" class="d-flex align-items-center justify-content-center" target="_blank"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                        <a href="<?= $psnw_redes_sociales['instagram'] ?>" class="d-flex align-items-center justify-content-center" target="_blank"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                        <a href="<?= $psnw_redes_sociales['instagram'] ?>" class="d-flex align-items-center justify-content-center" target="_blank"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a> -->
                     </p>
                 </div>
             </div>

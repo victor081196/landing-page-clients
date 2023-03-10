@@ -22,7 +22,7 @@ $fileType = ".jpg";
 $folder = explode("/", $_SERVER['REQUEST_URI']);
 
 define('FOLDER', $folder[1]);
-define('URL_API', 'http://localhost/ifixitv2.com/api/public/');
+define('URL_API', 'http://localhost/softmor-pos/api/public/');
 
 // Definiendo la ruta de la web 
 define('HTTP_HOST', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . FOLDER . '/');
