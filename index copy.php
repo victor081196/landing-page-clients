@@ -25,7 +25,7 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 
 	<?php include_once 'components/top-bar.php'; ?>
 
-	<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+	<div id="carouselExampleIndicators" class="carousel slide hero-wrap js-fullheight" data-ride="carousel">
 		<div class="carousel-inner">
 			<?php
 			$i = 0;
@@ -37,7 +37,7 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 					$active = '';
 				} ?>
 				<div class="carousel-item <?= $active; ?>">
-					<!-- <div class="hero-wrap  d-block w-100 img-res" style="background-image: url('<?= $slider['sld_imagen'] ?>');" data-stellar-background-ratio="0.5">
+					<div class="hero-wrap js-fullheight" style="background-image: url('<?= $slider['sld_imagen'] ?>');" data-stellar-background-ratio="0.5">
 						<div class="overlay"></div>
 						<div class="container">
 							<div class="row no-gutters slider-text js-fullheight align-items-center text-center" data-scrollax-parent="true">
@@ -52,8 +52,7 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 								</div>
 							</div>
 						</div>
-					</div> -->
-					<img src="<?= $slider['sld_imagen'] ?>" class="d-block w-100 img-res" alt="...">
+					</div>
 				</div>
 			<?php $i++;
 			endforeach; ?>
@@ -67,32 +66,6 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<!-- <div id="carouselExampleIndicators" class="carousel slide hero-wrap js-fullheigh" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="http://localhost/ifx_landing/images/ifx_1.svg" class="d-block w-100 img-res" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="http://localhost/ifx_landing/images/ifx_2.svg" class="d-block w-100 img-res" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="http://localhost/ifx_landing/images/ifx_3.svg" class="d-block w-100 img-res" alt="...">
-			</div>
-		</div>
-		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div> -->
 
 	<!-- <section class="ftco-intro">
 		<div class="container">
@@ -280,24 +253,23 @@ $pgn_preguntas = json_decode($pgn['pgn_preguntas'], true);
 		</div>
 	</section>
 
-	<?php if (!empty($psnw_top_bar['psnw_whatsapp'])) : ?>
-		<section class="ftco-section ftco-no-pb testimony-section bg-primary">
-			<div class="overlay-1"></div>
-			<div class="container-fluid">
-				<div class="row justify-content-center mb-5 pb-3">
-					<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-						<h2 class="mb-4">¿Tienes dudas?</h2>
-						<p>Contáctanos vía whatsapp para resolver todas la dudas que puedas tener.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 text-center mb-5">
-						<a href="https://api.whatsapp.com/send/?phone=<?= $psnw_top_bar['psnw_whatsapp'] ?>" class="btn btn-outline-light btn-lg rounded-pill" target="_blank"><i class="fa fa-whatsapp"></i> WHATSAPP</a>
-					</div>
+
+	<section class="ftco-section ftco-no-pb testimony-section bg-primary">
+		<div class="overlay-1"></div>
+		<div class="container-fluid">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+					<h2 class="mb-4">¿Tienes dudas?</h2>
+					<p>Contáctanos vía whatsapp para resolver todas la dudas que puedas tener.</p>
 				</div>
 			</div>
-		</section>
-	<?php endif; ?>
+			<div class="row">
+				<div class="col-md-12 text-center mb-5">
+					<a href="https://api.whatsapp.com/send/?phone=<?= $psnw_top_bar['psnw_whatsapp'] ?>" class="btn btn-outline-light btn-lg rounded-pill" target="_blank"><i class="fa fa-whatsapp"></i> WHATSAPP</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section class="ftco-section bg-light">
 		<div class="container">
